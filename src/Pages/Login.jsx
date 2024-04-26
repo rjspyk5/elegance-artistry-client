@@ -1,29 +1,29 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import bg from "../assets/images/bgcenter.png";
 
 export const Login = () => {
   const { state } = useLocation();
   console.log(state);
   return (
-    <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-          </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+    <div className="">
+      <div
+        className="hero  min-h-screen bg-contain bg-no-repeat"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
+        <div className="hero-overlay bg-opacity-40 "></div>
+        <div className="flex-col w-full">
+          <div className="text-center lg:text-left"></div>
+          <div className="card shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-md">
+            <h1 className="text-5xl font-bold text-center">Login now!</h1>
+            <form className="card-body ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="email"
+                  name="email"
+                  type="Type your email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -34,21 +34,23 @@ export const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
+                  name="pass"
                   type="password"
-                  placeholder="password"
+                  placeholder="Type your password"
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <h1 className="text-[white] text-center font-semibold">
+              New Here?{" "}
+              <Link to="/register" className="text-[#48ed48]">
+                Register now
+              </Link>
+            </h1>
           </div>
         </div>
       </div>
