@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../Provider/AuthProvider";
 
 export const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const menu = (
     <>
       <li>
@@ -97,10 +97,25 @@ export const Navbar = () => {
         </div>
         <div className="navbar-end space-x-2">
           {user ? (
-            <div className="avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
+            <div className="dropdown dropdown-hover">
+              <img
+                tabIndex={0}
+                role="button"
+                className="w-10 rounded-full"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] space-y-2  right-[-8px] menu p-2 shadow bg-base-100 rounded-box w-auto"
+              >
+                <p className="text-center">{user?.displayName}</p>
+                <button
+                  onClick={logOut}
+                  className="btn btn-sm bg-[#ec3434] text-[white]"
+                >
+                  Logout
+                </button>
+              </ul>
             </div>
           ) : (
             <>

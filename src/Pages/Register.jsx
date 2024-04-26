@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import bg from "../assets/images/bg.png";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+
 export const Register = () => {
   const successToast = (msz) => toast.success(msz);
   const errorToast = (msz) => toast.error(msz);
+  const { signUp, updateInfo } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -19,6 +23,20 @@ export const Register = () => {
         "Password must have an uppercase,a lowercase and length at least six character"
       );
     }
+
+    signUp(email, pass)
+      .then((res) => {
+        updateInfo(res.user, name, photo)
+          .then(() => {
+            Swal.fire({
+              title: "Succussfully register",
+
+              icon: "success",
+            });
+          })
+          .catch((err) => errorToast(err));
+      })
+      .catch((err) => errorToast(err));
   };
   return (
     <div className="">
@@ -55,7 +73,6 @@ export const Register = () => {
                   type="text"
                   placeholder="Your Name"
                   className="input input-bordered"
-                  required
                 />
               </div>
               <div className="form-control">
@@ -91,7 +108,6 @@ export const Register = () => {
                   type="text"
                   placeholder="Give your phot url"
                   className="input input-bordered"
-                  required
                 />
               </div>
               <div className="form-control mt-6">

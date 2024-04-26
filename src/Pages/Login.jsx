@@ -1,25 +1,34 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bg from "../assets/images/bgcenter.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const Login = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const successToast = (msz) => toast.success(msz);
   const errorToast = (msz) => toast.error(msz);
+
+  const { logIn } = useContext(AuthContext);
+
   console.log(state);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = e.target.pass.value;
+    logIn(email, password)
+      .then(() => navigate(state ? state : "/"))
+      .catch((err) => errorToast(`${err}`));
   };
   return (
     <div className="">
       <ToastContainer
         position="top-center"
-        autoClose={1000}
+        autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -75,6 +84,8 @@ export const Login = () => {
                 Register now
               </Link>
             </h1>
+            <button>Google Login</button>
+            <button>Github Login</button>
           </div>
         </div>
       </div>
