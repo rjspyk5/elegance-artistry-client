@@ -1,11 +1,36 @@
 import React from "react";
 import bg from "../assets/images/bg.png";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Register = () => {
+  const successToast = (msz) => toast.success(msz);
+  const errorToast = (msz) => toast.error(msz);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.name.value;
+    const pass = e.target.name.value;
+    const photo = e.target.photo.value;
+    console.log({ name, email, pass, photo });
+  };
   return (
     <div className="">
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div
-        className="hero min-h-screen bg-contain bg-no-repeat"
+        className="hero min-h-screen  bg-contain bg-no-repeat"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="hero-overlay bg-opacity-40 "></div>
@@ -15,10 +40,10 @@ export const Register = () => {
             <h1 className="text-5xl font-bold text-center  text-[white]">
               Register now!
             </h1>
-            <form className="card-body ">
+            <form onSubmit={handleRegister} className="card-body ">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text text-[white]">Name</span>
                 </label>
                 <input
                   name="name"
@@ -30,7 +55,7 @@ export const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-[white]">Email</span>
                 </label>
                 <input
                   name="email"
@@ -42,7 +67,7 @@ export const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-[white]">Password</span>
                 </label>
                 <input
                   name="pass"
@@ -54,7 +79,7 @@ export const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Photo url</span>
+                  <span className="label-text text-[white]">Photo url</span>
                 </label>
                 <input
                   name="photo"

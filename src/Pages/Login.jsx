@@ -1,25 +1,49 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import bg from "../assets/images/bgcenter.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const { state } = useLocation();
+  const successToast = (msz) => toast.success(msz);
+  const errorToast = (msz) => toast.error(msz);
   console.log(state);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const email = form.get("email");
+    const password = e.target.pass.value;
+  };
   return (
     <div className="">
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div
-        className="hero  min-h-screen bg-contain bg-no-repeat"
+        className="hero   min-h-screen bg-contain bg-no-repeat"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="hero-overlay bg-opacity-40 "></div>
         <div className="flex-col w-full">
           <div className="text-center lg:text-left"></div>
           <div className="card shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-md">
-            <h1 className="text-5xl font-bold text-center">Login now!</h1>
-            <form className="card-body ">
+            <h1 className="text-5xl font-bold text-center text-[white]">
+              Login now!
+            </h1>
+            <form onSubmit={handleLogin} className="card-body ">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-[white]">Email</span>
                 </label>
                 <input
                   name="email"
@@ -31,7 +55,7 @@ export const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-[white]">Password</span>
                 </label>
                 <input
                   name="pass"
@@ -42,7 +66,7 @@ export const Login = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-main text-[white]">Login</button>
               </div>
             </form>
             <h1 className="text-[white] text-center font-semibold">
