@@ -1,17 +1,17 @@
 import React from "react";
+import { SectionHeading } from "./SectionHeading";
+import { ArtsCard } from "./ArtsCard";
 
 export const ArtsShowcase = () => {
   return (
-    <div>
-      <div className=" bg-main">
-        <fieldset>
-          <legend>Featured Artworks</legend>
-        </fieldset>
-
-        <hr />
-        <p>Featured Artworks</p>
-        <hr />
+    <>
+      <SectionHeading
+        heading="Featured Arts"
+        subheading=" Explore our curated collection of contemporary and traditional artworks"
+      />
+      <div>
+        <ArtsCard />
       </div>
-    </div>
+    </>
   );
 };

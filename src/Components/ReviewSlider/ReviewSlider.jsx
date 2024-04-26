@@ -19,7 +19,7 @@ const carousel = (slider) => {
   slider.on("detailsChanged", rotate);
 };
 
-export default function App() {
+export const ReviewSlider = () => {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -44,4 +44,4 @@ export default function App() {
       </div>
     </div>
   );
-}
+};
