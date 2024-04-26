@@ -10,16 +10,21 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    const email = e.target.name.value;
-    const pass = e.target.name.value;
+    const email = e.target.email.value;
+    const pass = e.target.pass.value;
     const photo = e.target.photo.value;
-    console.log({ name, email, pass, photo });
+
+    if (!/[A-Z]/.test(pass) || !/[a-z]/.test(pass) || pass.length < 6) {
+      return errorToast(
+        "Password must have an uppercase,a lowercase and length at least six character"
+      );
+    }
   };
   return (
     <div className="">
       <ToastContainer
         position="top-center"
-        autoClose={1000}
+        autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
