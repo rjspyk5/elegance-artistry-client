@@ -7,11 +7,13 @@ import { MyArtList } from "./Pages/MyArtList";
 import { AllArtAndCrafts } from "./Pages/AllArtAndCrafts";
 import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
+import { ErrorPage } from "./Components/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
