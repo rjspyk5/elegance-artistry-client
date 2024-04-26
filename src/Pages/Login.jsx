@@ -1,6 +1,9 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 export const Login = () => {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
