@@ -4,9 +4,12 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase.config";
+import { GithubAuthProvider } from "firebase/auth/cordova";
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -43,8 +46,20 @@ export const AuthProvider = ({ children }) => {
     setloading(true);
     return signOut(auth);
   };
-
-  const userinfo = { signUp, logIn, logOut, user, loading, updateInfo };
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const googleLogIn = () => signInWithPopup(auth, googleProvider);
+  const githubLogin = () => signInWithPopup(auth, githubProvider);
+  const userinfo = {
+    signUp,
+    logIn,
+    logOut,
+    user,
+    loading,
+    updateInfo,
+    googleLogIn,
+    githubLogin,
+  };
   return (
     <AuthContext.Provider value={userinfo}>{children}</AuthContext.Provider>
   );
