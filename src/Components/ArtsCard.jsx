@@ -1,6 +1,6 @@
 import React from "react";
 import second from "../assets/images/bg2.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import bg from "../assets/images/splash.png";
 export const ArtsCard = ({ art }) => {
   return (
@@ -51,7 +51,7 @@ export const ArtsCard = ({ art }) => {
               backgroundImage: `url(${bg})`,
             }}
             to={`/art/${art._id}`}
-            className="btn bg-contain bg-no-repeat "
+            className="btn bg-lime-500 text-white hover:text-black bg-contain bg-no-repeat "
           >
             ViewDetails
           </Link>
