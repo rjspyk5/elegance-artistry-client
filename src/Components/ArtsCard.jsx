@@ -41,7 +41,6 @@ export const ArtsCard = ({ art }) => {
         </div>
         <p>Price :</p>
         <div className="flex justify-between">
-          <div className="btn">Add </div>
           <Link to={`/art/${art._id}`} className="btn">
             ViewDetails
           </Link>

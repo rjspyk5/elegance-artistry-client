@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { MyartsCard } from "../Components/MyartsCard";
 
 export const MyArtList = () => {
+  const [filter, setfilter] = useState("all ");
   const {
     user: { email },
   } = useContext(AuthContext);
@@ -29,6 +30,19 @@ export const MyArtList = () => {
 
   return (
     <div>
+      <label htmlFor="">Fiter</label>
+      <select
+        onChange={(e) => {
+          setfilter(e.target.value);
+        }}
+        name="rating"
+        className="p-2 "
+      >
+        <option value="all">All data</option>
+        <option value="customizable">Customizable</option>
+        <option value="ncustomizable">Not Customizable</option>
+      </select>
+      <p>{filter}</p>
       {userArts.map((el) => (
         <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
       ))}
