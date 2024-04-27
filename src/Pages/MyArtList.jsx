@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { MyartsCard } from "../Components/MyartsCard";
 
 export const MyArtList = () => {
   const {
@@ -10,9 +11,27 @@ export const MyArtList = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/myart/${email}`)
       .then((res) => res.json())
-      .then((r) => console.log(r))
+      .then((r) => setuserArts(r))
       .catch((err) => console.log(err));
-  }, [email]);
+  }, [email, userArts]);
 
-  return <div>MyArtList</div>;
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/art/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        const updateArts = userArts.filter((el) => el._id != id);
+        setuserArts(updateArts);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div>
+      {userArts.map((el) => (
+        <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
+      ))}
+    </div>
+  );
 };
