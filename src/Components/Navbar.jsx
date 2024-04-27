@@ -23,7 +23,7 @@ export const Navbar = () => {
           to="/arts"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 text-white focus:bg-green-500 focus:text-white"
+              ? "bg-green-500  text-white focus:bg-green-500 focus:text-white"
               : ""
           }
         >
@@ -61,8 +61,8 @@ export const Navbar = () => {
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-[#ffffff28] backdrop-blur-lg sticky top-0">
+    <div className="sticky top-0 z-50">
+      <div className="navbar bg-[#ffffff28] backdrop-blur-lg ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -83,7 +83,7 @@ export const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z  p-2 shadow bg-base-100 rounded-box w-52"
             >
               {menu}
             </ul>
@@ -106,7 +106,7 @@ export const Navbar = () => {
               />
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] space-y-2  right-[-8px] menu p-2 shadow bg-base-100 rounded-box w-auto"
+                className="dropdown-content z-[500] z  space-y-2  right-[-8px] menu p-2 shadow bg-base-100 rounded-box w-auto"
               >
                 <p className="text-center">{user?.displayName}</p>
                 <button

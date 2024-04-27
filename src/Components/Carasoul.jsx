@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import "./style.css";
+import slider from "../assets/images/slider/slider.jpg";
+import slider1 from "../assets/images/slider/slider1.jpg";
+import slider2 from "../assets/images/slider/slider2.jpg";
+import slider3 from "../assets/images/slider/slider3.jpg";
 export const Carasoul = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +34,7 @@ export const Carasoul = () => {
           if (mouseOver) return;
           timeout = setTimeout(() => {
             slider.next();
-          }, 2000);
+          }, 1500);
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
@@ -51,11 +55,71 @@ export const Carasoul = () => {
   );
 
   return (
-    <div className="navigation-wrapper">
-      <div ref={sliderRef} className="keen-slider">
-        <div className="keen-slider__slide">1</div>
-        <div className="keen-slider__slide">2</div>
-        <div className="keen-slider__slide">3</div>
+    <div className="navigation-wrapper ">
+      <div ref={sliderRef} className="keen-slider ">
+        <div className="keen-slider__slide ">
+          <div
+            className="hero min-h-[500px] mz"
+            style={{
+              backgroundImage: `url(${slider})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-content text-center text-neutral-content mz">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                <p className="mb-5">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                  assumenda excepturi exercitationem quasi. In deleniti eaque
+                  aut repudiandae et a id nisi.
+                </p>
+                <button className="btn btn-primary">Get Started</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="keen-slider__slide">
+          <div
+            className="hero min-h-[500px] mz"
+            style={{
+              backgroundImage: `url(${slider2})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-content text-center text-neutral-content mz">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                <p className="mb-5">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                  assumenda excepturi exercitationem quasi. In deleniti eaque
+                  aut repudiandae et a id nisi.
+                </p>
+                <button className="btn btn-primary">Get Started</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="keen-slider__slide">
+          <div
+            className="hero min-h-[500px] mz"
+            style={{
+              backgroundImage: `url(${slider1})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-content text-center text-neutral-content mz">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                <p className="mb-5">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                  assumenda excepturi exercitationem quasi. In deleniti eaque
+                  aut repudiandae et a id nisi.
+                </p>
+                <button className="btn btn-primary">Get Started</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {loaded && instanceRef.current && (
         <div className="dots">

@@ -2,13 +2,18 @@ import React from "react";
 import { Carasoul } from "../Components/Carasoul";
 import { ArtsShowcase } from "../Components/ArtsShowcase";
 import { ReviewSlider } from "../Components/ReviewSlider/ReviewSlider";
+import { Catagory } from "../Components/Catagory";
 
 export const Home = () => {
   return (
-    <div>
+    <div className=" ">
       <Carasoul />
-      <ArtsShowcase />
-      <ReviewSlider />
+
+      <div className="max-w-[1100px mx-auto]">
+        <ArtsShowcase />
+        <Catagory />
+        <ReviewSlider />
+      </div>
     </div>
   );
 };

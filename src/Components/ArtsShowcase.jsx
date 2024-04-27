@@ -10,14 +10,15 @@ export const ArtsShowcase = () => {
       .then((r) => setarts(r))
       .catch((err) => console.log(err));
   }, []);
-  console.log(arts);
+
   return (
     <>
       <SectionHeading
         heading="Featured Arts"
         subheading=" Explore our curated collection of contemporary and traditional artworks"
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div className="grid  grid-cols-1 md:grid-cols-3 gap-5">
         {arts.map((el) => (
           <ArtsCard key={el._id} art={el} />
         ))}
