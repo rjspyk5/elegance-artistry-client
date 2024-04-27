@@ -1,23 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { ArtsCard } from "./ArtsCard";
 
 export const ArtsShowcase = () => {
+  const [arts, setarts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/arts")
+    fetch("http://localhost:5000/arts/six")
       .then((res) => res.json())
-      .then((r) => console.log(r))
+      .then((r) => setarts(r))
       .catch((err) => console.log(err));
   }, []);
-
+  console.log(arts);
   return (
     <>
       <SectionHeading
         heading="Featured Arts"
         subheading=" Explore our curated collection of contemporary and traditional artworks"
       />
-      <div>
-        <ArtsCard />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {arts.map((el) => (
+          <ArtsCard key={el._id} art={el} />
+        ))}
       </div>
     </>
   );

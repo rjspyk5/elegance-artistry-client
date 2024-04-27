@@ -1,7 +1,7 @@
 import React from "react";
 import second from "../assets/images/bg2.jpg";
 import { Link } from "react-router-dom";
-export const ArtsCard = (props) => {
+export const ArtsCard = ({ art }) => {
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
@@ -42,7 +42,7 @@ export const ArtsCard = (props) => {
         <p>Price :</p>
         <div className="flex justify-between">
           <div className="btn">Add </div>
-          <Link to={`/art/${props._id}`} className="btn">
+          <Link to={`/art/${art._id}`} className="btn">
             ViewDetails
           </Link>
         </div>

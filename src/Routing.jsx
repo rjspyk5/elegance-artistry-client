@@ -50,6 +50,7 @@ export const routes = createBrowserRouter([
             <ArtDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
       },
     ],
   },
