@@ -9,6 +9,7 @@ import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { ErrorPage } from "./Components/ErrorPage";
 import { ArtDetails } from "./Pages/ArtDetails";
+import { UpdateArts } from "./Pages/UpdateArts";
 
 export const routes = createBrowserRouter([
   {
@@ -49,6 +50,15 @@ export const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ArtDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateArts />
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),

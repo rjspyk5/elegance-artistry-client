@@ -40,10 +40,12 @@ export const MyartsCard = ({ art, handledelete }) => {
         </div>
         <p>Price :</p>
         <div className="flex justify-between">
-          <div className="btn">Edit</div>
-          <Link onClick={() => handledelete(art._id)} className="btn">
-            Delete
+          <Link to={`/update/${art._id}`} className="btn">
+            Edit
           </Link>
+          <button onClick={() => handledelete(art._id)} className="btn">
+            Delete
+          </button>
         </div>
       </div>
     </div>
