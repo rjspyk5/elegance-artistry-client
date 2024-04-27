@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import bg from "../assets/images/bgnew.png";
+
+import Swal from "sweetalert2";
 
 export const AddArtIteam = () => {
   const { user } = useContext(AuthContext);
@@ -17,7 +20,7 @@ export const AddArtIteam = () => {
     const customization = e.target.customization.value;
     const rating = e.target.rating.value;
     const stock = e.target.stock.value;
-    console.log({
+    const data = {
       art_name,
       description,
       photo,
@@ -29,7 +32,35 @@ export const AddArtIteam = () => {
       customization,
       rating,
       stock,
-    });
+    };
+    fetch("http://localhost:5000/art", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((r) => {
+        console.log(r);
+        Swal.fire({
+          title: "Iteam added succussfully",
+          background: `#fff url(${bg})`,
+          icon: "success",
+          customClass: {
+            title: "text-[green]",
+          },
+        });
+        e.target.reset();
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${err}`,
+          customClass: {
+            title: "text-[red]",
+          },
+        })
+      );
   };
   return (
     <div>
@@ -112,11 +143,11 @@ export const AddArtIteam = () => {
                 <label>Rating</label>
                 <br />
                 <select name="rating" className="p-2 w-full">
-                  <option value="1">One star</option>
-                  <option value="2">Two Star</option>
+                  <option value="5">Five Star</option>
+                  <option value="4">Four Star</option>
                   <option value="3">Three Star</option>
-                  <option value="3">Four Star</option>
-                  <option value="3">Five Star</option>
+                  <option value="2">Two Star</option>
+                  <option value="1">One star</option>
                 </select>
                 <br />
                 <label htmlFor="name">Price</label>

@@ -7,7 +7,6 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 export const Register = () => {
-  const successToast = (msz) => toast.success(msz);
   const errorToast = (msz) => toast.error(msz);
   const { signUp, updateInfo } = useContext(AuthContext);
 
