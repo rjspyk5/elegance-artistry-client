@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const AddArtIteam = () => {
+  const { user } = useContext(AuthContext);
+
   const handleAddItem = (e) => {
     e.preventDefault();
+    const art_name = e.target.name.value;
+    const description = e.target.description.value;
+    const photo = e.target.photo.value;
+    const email = user?.email;
+    const username = user?.displayName || "unknown";
+    const subcategory = e.target.subcategory.value;
+    const price = e.target.price.value;
+    const process_time = e.target.time.value;
+    const customization = e.target.customization.value;
+    const rating = e.target.rating.value;
+    const stock = e.target.stock.value;
+    console.log({
+      art_name,
+      description,
+      photo,
+      username,
+      email,
+      subcategory,
+      price,
+      process_time,
+      customization,
+      rating,
+      stock,
+    });
   };
   return (
     <div>
@@ -38,7 +65,7 @@ export const AddArtIteam = () => {
             <label>Photo</label>
             <br />
             <input
-              name="Photo"
+              name="photo"
               placeholder="Photo Url"
               type="text"
               className="w-full p-1 mb-3 rounded-md "
@@ -50,6 +77,7 @@ export const AddArtIteam = () => {
                 <br />
                 <input
                   name="user"
+                  defaultValue={user?.displayName || "unknown"}
                   placeholder="UserName"
                   type="text"
                   className="w-full p-1 mb-3"
@@ -62,6 +90,8 @@ export const AddArtIteam = () => {
                 <input
                   name="email"
                   placeholder="Your Email"
+                  disabled
+                  value={user?.email}
                   type="text"
                   className="w-full p-1 mb-3"
                 />
@@ -75,18 +105,19 @@ export const AddArtIteam = () => {
                 <input
                   name="subcategory"
                   type="text"
-                  placeholder="Subcategoryr Name"
+                  placeholder="Subcatagory Name"
                   className="w-full p-1 mb-3"
                 />
                 <br />
                 <label>Rating</label>
                 <br />
-                <input
-                  name="rating"
-                  type="number"
-                  placeholder="Rating"
-                  className="w-full p-1 mb-3"
-                />
+                <select name="rating" className="p-2 w-full">
+                  <option value="1">One star</option>
+                  <option value="2">Two Star</option>
+                  <option value="3">Three Star</option>
+                  <option value="3">Four Star</option>
+                  <option value="3">Five Star</option>
+                </select>
                 <br />
                 <label htmlFor="name">Price</label>
                 <br />
@@ -108,23 +139,19 @@ export const AddArtIteam = () => {
                   className="w-full p-1 mb-3"
                 />
                 <br />
-                <label htmlFor="name">Taste</label>
+                <label htmlFor="name">Customization</label>
                 <br />
-                <input
-                  name="Taste"
-                  type="text"
-                  placeholder="Enter Coffe Taste"
-                  className="w-full p-1 mb-3"
-                />
+                <select name="customization" className="p-2 w-full">
+                  <option value="Possible">Possible</option>
+                  <option value="Not Possible">Not Possible</option>
+                </select>
                 <br />
-                <label htmlFor="name">Price</label>
+                <label htmlFor="name">Stock Status</label>
                 <br />
-                <input
-                  name="price"
-                  type="text"
-                  placeholder="Enter Coffe price"
-                  className="w-full p-1 mb-3"
-                />
+                <select name="stock" className="p-2 w-full">
+                  <option value="In Stock">In Stock</option>
+                  <option value="Made to order">Made to Order</option>
+                </select>
                 <br />
               </div>
             </div>
