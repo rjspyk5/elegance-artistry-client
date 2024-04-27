@@ -15,34 +15,7 @@ export const ArtsCard = ({ art }) => {
         <p className="opacity-60 text-black">{art.subcategory}</p>
         <h2 className="card-title text-black">{art.art_name}</h2>
 
-        <div className="rating">
-          <input
-            type="radio"
-            name="rating-2"
-            className="mask mask-star-2 bg-orange-400"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            className="mask mask-star-2 bg-orange-400"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            className="mask mask-star-2 bg-orange-400"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            className="mask mask-star-2 bg-orange-400"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            className="mask mask-star-2 bg-orange-400"
-            checked
-          />
-        </div>
+        <p>Rating : {art.rating}</p>
 
         <div className="flex justify-between items-center">
           <p className="text-black font-bold text-2xl">Price : {art.price}</p>

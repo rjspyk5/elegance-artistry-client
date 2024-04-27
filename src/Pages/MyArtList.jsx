@@ -29,7 +29,7 @@ export const MyArtList = () => {
   };
 
   return (
-    <div>
+    <>
       <label htmlFor="">Fiter</label>
       <select
         onChange={(e) => {
@@ -43,9 +43,11 @@ export const MyArtList = () => {
         <option value="ncustomizable">Not Customizable</option>
       </select>
       <p>{filter}</p>
-      {userArts.map((el) => (
-        <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
-      ))}
-    </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {userArts.map((el) => (
+          <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
+        ))}
+      </div>
+    </>
   );
 };

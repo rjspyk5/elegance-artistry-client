@@ -144,18 +144,12 @@ export const UpdateArts = () => {
                 <br />
                 <label>Rating</label>
                 <br />
-                <select
-                  defaultValue={data?.rating}
+                <input
                   name="rating"
-                  className="p-2 w-full"
-                >
-                  <option value="5">Five Star</option>
-                  <option value="4">Four Star</option>
-                  <option value="3">Three Star</option>
-                  <option value="2">Two Star</option>
-                  <option value="1">One star</option>
-                </select>
-                <br />
+                  type="text"
+                  placeholder="Rating"
+                  className="w-full p-1 mb-3"
+                />
                 <label htmlFor="name">Price</label>
                 <br />
                 <input
