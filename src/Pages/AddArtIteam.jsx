@@ -1,18 +1,21 @@
 import React from "react";
 
 export const AddArtIteam = () => {
+  const handleAddItem = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
-      <button className="font-rancho" onClick={() => navigate(-1)}>
+      <button className="" onClick={() => navigate(-1)}>
         Go back
       </button>
       <div className="flex flex-col justify-center items-center">
         <div className="bg-[#F4F3F0] mt-10 py-16 px-24 max-w-[1000px] rounded-md">
-          <h1 className="text-[#374151] text-3xl font-rancho text-center">
+          <h1 className="text-[#374151] text-3xl  text-center">
             Add Your Arts Iteams
           </h1>
 
-          <form action="" className="mt-4">
+          <form onSubmit={handleAddItem} action="" className="mt-4">
             <label>Arts Name</label>
             <br />
             <input

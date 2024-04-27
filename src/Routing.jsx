@@ -8,6 +8,7 @@ import { AllArtAndCrafts } from "./Pages/AllArtAndCrafts";
 import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { ErrorPage } from "./Components/ErrorPage";
+import { ArtDetails } from "./Pages/ArtDetails";
 
 export const routes = createBrowserRouter([
   {
@@ -38,6 +39,15 @@ export const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyArtList />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/art/:id",
+        element: (
+          <PrivateRoute>
+            <ArtDetails />
           </PrivateRoute>
         ),
       },
