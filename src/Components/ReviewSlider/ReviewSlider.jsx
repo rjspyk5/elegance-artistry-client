@@ -11,13 +11,17 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const ReviewSlider = () => {
   const [reviews, setreviews] = useState([]);
+  const [loading, setloading] = useState(true);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("https://elegance-artistry-server.vercel.app/review")
       .then((res) => res.json())
-      .then((r) => setreviews(r))
+      .then((r) => {
+        setloading(false);
+        setreviews(r);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -78,13 +82,21 @@ export const ReviewSlider = () => {
   return (
     <div>
       <SectionHeading heading="Latest Reviews" />
-      <div className="max-w-[550px] mx-auto">
-        <Slider {...settings}>
-          {reviews &&
-            reviews.slice(-4).map((el) => {
-              return <ReviewCard key={el._id} review={el} />;
-            })}
-        </Slider>
+      <div>
+        {" "}
+        {loading && (
+          <div className="flex justify-center items-center min-h-[200px]">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        )}
+        <div className="max-w-[550px] mx-auto">
+          <Slider {...settings}>
+            {reviews &&
+              reviews.slice(-4).map((el) => {
+                return <ReviewCard key={el._id} review={el} />;
+              })}
+          </Slider>
+        </div>
       </div>
 
       <div className="mt-7 w-full md:w-2/4 mx-auto">
