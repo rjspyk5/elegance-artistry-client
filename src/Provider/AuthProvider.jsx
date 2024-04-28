@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-
+  console.log(user);
   const signUp = (email, pass) => {
     setloading(true);
     return createUserWithEmailAndPassword(auth, email, pass);

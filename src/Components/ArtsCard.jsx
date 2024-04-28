@@ -6,25 +6,30 @@ export const ArtsCard = ({ art }) => {
   return (
     <div
       className="card card-compact  shadow-xl
-    max-w-sm  shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03] glass duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-[#ffffff2f] text-white"
+    max-w-sm  shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03]  duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-base-300 "
     >
       <figure>
         <img src={second} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <p className="opacity-60 text-black">{art.subcategory}</p>
-        <h2 className="card-title text-black">{art.art_name}</h2>
+        <div>
+          <span className=" rounded-lg  text-white p-1 px-3 backdrop-blur-lg bg-[#37f80c5f]">
+            {art.subcategory}
+          </span>
+        </div>
+
+        <h2 className="card-title ">{art.art_name}</h2>
 
         <p>Rating : {art.rating}</p>
 
         <div className="flex justify-between items-center">
-          <p className="text-black font-bold text-2xl">Price : {art.price}</p>
+          <p className=" font-bold text-2xl">Price : {art.price}</p>
           <Link
             style={{
               backgroundImage: `url(${bg})`,
             }}
             to={`/art/${art._id}`}
-            className="btn bg-lime-500 text-white hover:text-black bg-contain bg-no-repeat "
+            className="btn bg-lime-500 hover:bg-lime-700 text-white  bg-contain bg-no-repeat "
           >
             ViewDetails
           </Link>

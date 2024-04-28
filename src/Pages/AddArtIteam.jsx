@@ -48,6 +48,7 @@ export const AddArtIteam = () => {
             title: "text-[green]",
           },
         });
+
         e.target.reset();
       })
       .catch((err) =>

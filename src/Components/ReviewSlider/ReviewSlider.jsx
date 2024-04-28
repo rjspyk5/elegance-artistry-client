@@ -3,6 +3,11 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { SectionHeading } from "../SectionHeading";
+import { ReviewCard } from "./ReviewCard";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const ReviewSlider = () => {
   const [reviews, setreviews] = useState([]);
@@ -27,6 +32,7 @@ export const ReviewSlider = () => {
         body: JSON.stringify({
           review,
           author: user?.displayName || user?.email,
+          photo: user.photoURL,
         }),
       })
         .then((res) => res.json())
@@ -58,31 +64,46 @@ export const ReviewSlider = () => {
       navigate("/login");
     }
   };
+  var settings = {
+    dots: true,
+    infinite: true,
+
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+  };
 
   return (
     <div>
       <SectionHeading heading="Latest Reviews" />
-      <div className="">
-        {reviews &&
-          reviews.map((el) => {
-            return (
-              <div key={el._id} className="">
-                {el?.review}
-              </div>
-            );
-          })}
+      <div className="max-w-[550px] mx-auto">
+        <Slider {...settings}>
+          {reviews &&
+            reviews.slice(-4).map((el) => {
+              return <ReviewCard key={el._id} review={el} />;
+            })}
+        </Slider>
       </div>
 
-      <div>
+      <div className="mt-7 w-full md:w-2/4 mx-auto">
         <form onSubmit={handleReview} action="">
           <textarea
             placeholder="write review"
-            className="border w-full"
+            className="border border-opacity-50 bg-transparent p-4 w-full rounded-lg "
             name="review"
             id=""
             rows="5"
           ></textarea>
-          <input type="submit" value="Submit" />
+          <br />
+          <div className="flex justify-center">
+            <input
+              className="btn text-white hover:bg-lime-700 bg-lime-400"
+              type="submit"
+              value="Submit"
+            />
+          </div>
         </form>
       </div>
     </div>

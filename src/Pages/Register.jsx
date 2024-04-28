@@ -58,7 +58,6 @@ export const Register = () => {
         className="hero min-h-screen  bg-contain bg-no-repeat"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="hero-overlay bg-opacity-40 "></div>
         <div className="flex-col w-full">
           <div className="text-center lg:text-left"></div>
           <div className="card my-10 shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-md">

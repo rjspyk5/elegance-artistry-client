@@ -55,16 +55,16 @@ export const Carasoul = () => {
   );
 
   return (
-    <div className="navigation-wrapper ">
+    <div className="navigation-wrapper pt-5">
       <div ref={sliderRef} className="keen-slider ">
         <div className="keen-slider__slide ">
           <div
-            className="hero min-h-[500px] mz"
+            className="hero rounded-xl min-h-[450px] mz"
             style={{
               backgroundImage: `url(${slider})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
@@ -80,12 +80,12 @@ export const Carasoul = () => {
         </div>
         <div className="keen-slider__slide">
           <div
-            className="hero min-h-[500px] mz"
+            className="hero rounded-xl min-h-[450px] mz"
             style={{
               backgroundImage: `url(${slider2})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
@@ -101,12 +101,12 @@ export const Carasoul = () => {
         </div>
         <div className="keen-slider__slide">
           <div
-            className="hero min-h-[500px] mz"
+            className="hero rounded-xl min-h-[450px] mz"
             style={{
               backgroundImage: `url(${slider1})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60 mz"></div>
+            <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-5xl font-bold">Hello there</h1>

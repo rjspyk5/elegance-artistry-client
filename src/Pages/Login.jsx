@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export const Login = () => {
   const { state } = useLocation();
@@ -83,7 +85,6 @@ export const Login = () => {
         className="hero   min-h-screen bg-contain bg-no-repeat"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="hero-overlay bg-opacity-40 "></div>
         <div className="flex-col w-full">
           <div className="text-center lg:text-left"></div>
           <div className="card shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-md">
@@ -125,8 +126,20 @@ export const Login = () => {
                 Register now
               </Link>
             </h1>
-            <button onClick={handleGoogleLogIn}>Google Login</button>
-            <button onClick={handleGithubLogin}>Github Login</button>
+            <div className="flex items-center my-3  justify-center">
+              <div className="border-t border-1 opacity-70 flex-grow"></div>
+              <span className="mx-4  text-white">Or Login With</span>
+              <div className="border-t border-1 opacity-70  flex-grow"></div>
+            </div>
+
+            <div className="flex justify-center gap-4">
+              <button onClick={handleGoogleLogIn}>
+                <FcGoogle size={30} />{" "}
+              </button>
+              <button onClick={handleGithubLogin}>
+                <FaGithub size={30} />
+              </button>
+            </div>
           </div>
         </div>
       </div>

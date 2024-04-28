@@ -47,7 +47,7 @@ export const UpdateArts = () => {
           },
         });
         e.target.reset();
-        navigate(-1);
+        navigate("/myart");
       })
       .catch((err) =>
         Swal.fire({

@@ -10,12 +10,10 @@ export const Home = () => {
     <div className=" ">
       <Carasoul />
 
-      <div className="max-w-[1100px mx-auto]">
-        <ArtsShowcase />
-        <Catagory />
-        <ReviewSlider />
-        <FAQ />
-      </div>
+      <ArtsShowcase />
+      <Catagory />
+      <ReviewSlider />
+      <FAQ />
     </div>
   );
 };

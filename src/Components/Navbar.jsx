@@ -26,8 +26,8 @@ export const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 text-white focus:bg-green-500 focus:text-white"
-              : ""
+              ? "bg-green-500 font-bold text-white focus:bg-green-500 focus:text-white"
+              : "font-bold"
           }
         >
           Home
@@ -38,8 +38,8 @@ export const Navbar = () => {
           to="/arts"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500  text-white focus:bg-green-500 focus:text-white"
-              : ""
+              ? "bg-green-500 font-bold  text-white focus:bg-green-500 focus:text-white"
+              : "font-bold"
           }
         >
           All Art Items
@@ -51,8 +51,8 @@ export const Navbar = () => {
             to="/add"
             className={({ isActive }) =>
               isActive
-                ? "bg-green-500 text-white focus:bg-green-500 focus:text-white"
-                : ""
+                ? "bg-green-500 font-bold text-white focus:bg-green-500 focus:text-white"
+                : "font-bold"
             }
           >
             Add Arts Item
@@ -65,8 +65,8 @@ export const Navbar = () => {
             to="/myart"
             className={({ isActive }) =>
               isActive
-                ? "bg-green-500 text-white focus:bg-green-500 focus:text-white "
-                : ""
+                ? "bg-green-500 font-bold text-white focus:bg-green-500 focus:text-white "
+                : "font-bold"
             }
           >
             My Art&Craft List
@@ -76,9 +76,9 @@ export const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky top-0 z-50">
-      <div className="navbar bg-[#ffffff28] backdrop-blur-lg ">
-        <div className="navbar-start">
+    <div className="sticky  top-0 z-50 bg-[#ffffff28] backdrop-blur-lg">
+      <div className="navbar  max-w-[1100px] mx-auto">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -103,8 +103,8 @@ export const Navbar = () => {
               {menu}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl">
-            EleganceArtistry
+          <Link to="/" className=" text-xl font-bold">
+            <span className="text-green-500">E</span>leganceArtistry
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -125,7 +125,8 @@ export const Navbar = () => {
                 tabIndex={0}
                 role="button"
                 className="w-10 rounded-full"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={user.photoURL}
+                alt="UsrImage"
               />
               <ul
                 tabIndex={0}
@@ -142,10 +143,16 @@ export const Navbar = () => {
             </div>
           ) : (
             <>
-              <NavLink to="/login" className="btn">
+              <NavLink
+                to="/login"
+                className="btn bg-lime-500 text-white btn-sm md:btn-md"
+              >
                 Login
               </NavLink>
-              <NavLink to="/register" className="btn">
+              <NavLink
+                to="/register"
+                className="btn bg-blue-500 text-white btn-sm md:btn-md"
+              >
                 Register
               </NavLink>
             </>
