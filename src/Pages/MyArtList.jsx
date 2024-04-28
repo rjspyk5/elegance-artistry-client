@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { MyartsCard } from "../Components/MyartsCard";
-
+import Swal from "sweetalert2";
 export const MyArtList = () => {
   const {
     user: { email },
@@ -32,15 +32,30 @@ export const MyArtList = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/art/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(() => {
-        const updateArts = userArts.filter((el) => el._id != id);
-        setuserArts(updateArts);
-      })
-      .catch((err) => console.log(err));
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#5A882E",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/art/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              title: "Deleted successfully",
+              icon: "success",
+            });
+            const updateArts = userArts.filter((el) => el._id != id);
+            setuserArts(updateArts);
+          })
+          .catch((err) => console.log(err));
+      }
+    });
   };
 
   return (
