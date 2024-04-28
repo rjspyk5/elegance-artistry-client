@@ -129,16 +129,21 @@ export const AddArtIteam = () => {
                 <br />
               </div>
             </div>
+
             <div className="flex flex-col md:flex-row gap-5 ">
               <div className="md:w-[50%] w-full *:rounded-md">
                 <label htmlFor="name">Subcategory</label>
                 <br />
-                <input
-                  name="subcategory"
-                  type="text"
-                  placeholder="Subcatagory Name"
-                  className="w-full p-1 mb-3"
-                />
+                <select name="subcategory" className="p-2 w-full">
+                  <option value="Landscape Painting">Landscape Painting</option>
+                  <option value="Portrait Drawing">Portrait Drawing</option>
+                  <option value="Watercolour Painting">
+                    Watercolour Painting
+                  </option>
+                  <option value="Oil Paintinge">Oil Painting</option>
+                  <option value="Charcoal Sketching">Charcoal Sketching</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
+                </select>
                 <br />
                 <label>Rating</label>
                 <br />
