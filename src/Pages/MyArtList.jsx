@@ -15,21 +15,30 @@ export const MyArtList = () => {
       .then((res) => res.json())
       .then((r) => setuserArts(r))
       .catch((err) => console.log(err));
-  }, [email, userArts]);
+  }, [email]);
 
-  const handleFilter = (e) => {
-    setfilter(e.target.value);
-    if (filter) {
-      const updated = userArts.filter((el) => el.customization === "Possible");
-      setuserArts(updated);
+  useEffect(() => {
+    if (filter === "c") {
+      fetch(`http://localhost:5000/myart/${email}`)
+        .then((res) => res.json())
+        .then((r) => {
+          const up = r.filter((el) => el.customization === "Possible");
+
+          setuserArts(up);
+        })
+        .catch((err) => console.log(err));
     }
     if (filter === "no") {
-      const updated = userArts.filter(
-        (el) => el.customization === "Not Possible"
-      );
-      setuserArts(updated);
+      const up = userArts.filter((el) => el.customization === "Not Possible");
+      setuserArts(up);
     }
-  };
+    if (filter === "all") {
+      fetch(`http://localhost:5000/myart/${email}`)
+        .then((res) => res.json())
+        .then((r) => setuserArts(r))
+        .catch((err) => console.log(err));
+    }
+  }, [filter]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -61,9 +70,13 @@ export const MyArtList = () => {
   return (
     <>
       <label htmlFor="">Fiter</label>
-      <select onChange={handleFilter} name="rating" className="p-2 ">
+      <select
+        onChange={(e) => setfilter(e.target.value)}
+        name="rating"
+        className="p-2 "
+      >
         <option value="all">All data</option>
-        <option value={true}>Customizable</option>
+        <option value="c">Customizable</option>
         <option value="no">Not Customizable</option>
       </select>
 
