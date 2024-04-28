@@ -4,6 +4,7 @@ import bg from "../assets/images/bgcenter.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 export const Login = () => {
   const { state } = useLocation();
@@ -11,7 +12,7 @@ export const Login = () => {
   const successToast = (msz) => toast.success(msz);
   const errorToast = (msz) => toast.error(msz);
 
-  const { logIn } = useContext(AuthContext);
+  const { logIn, googleLogIn } = useContext(AuthContext);
 
   console.log(state);
 
@@ -21,7 +22,28 @@ export const Login = () => {
     const email = form.get("email");
     const password = e.target.pass.value;
     logIn(email, password)
-      .then(() => navigate(state ? state : "/"))
+      .then(() => {
+        Swal.fire({
+          title: "Succussfully Login",
+
+          icon: "success",
+        });
+        navigate(state ? state : "/");
+      })
+      .catch((err) => errorToast(`${err}`));
+  };
+
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((r) => {
+        console.log(r);
+        Swal.fire({
+          title: "Succussfully Login",
+
+          icon: "success",
+        });
+        navigate(state ? state : "/");
+      })
       .catch((err) => errorToast(`${err}`));
   };
   return (
@@ -84,7 +106,7 @@ export const Login = () => {
                 Register now
               </Link>
             </h1>
-            <button>Google Login</button>
+            <button onClick={handleGoogleLogIn}>Google Login</button>
             <button>Github Login</button>
           </div>
         </div>
