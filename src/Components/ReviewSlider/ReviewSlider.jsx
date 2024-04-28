@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { SectionHeading } from "../SectionHeading";
 
 export const ReviewSlider = () => {
   const [reviews, setreviews] = useState([]);
@@ -60,6 +61,7 @@ export const ReviewSlider = () => {
 
   return (
     <div>
+      <SectionHeading heading="Latest Reviews" />
       <div className="">
         {reviews &&
           reviews.map((el) => {
