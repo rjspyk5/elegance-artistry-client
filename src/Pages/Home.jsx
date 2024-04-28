@@ -3,6 +3,7 @@ import { Carasoul } from "../Components/Carasoul";
 import { ArtsShowcase } from "../Components/ArtsShowcase";
 import { ReviewSlider } from "../Components/ReviewSlider/ReviewSlider";
 import { Catagory } from "../Components/Catagory";
+import { FAQ } from "../Components/FAQ";
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
         <ArtsShowcase />
         <Catagory />
         <ReviewSlider />
+        <FAQ />
       </div>
     </div>
   );

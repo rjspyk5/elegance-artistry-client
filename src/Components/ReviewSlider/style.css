@@ -18,7 +18,7 @@ body {
     max-height: 100vh;
   }
   
-  .number-slide1 {
+  /* .number-slide1 {
     background: rgb(64, 175, 255);
     background: linear-gradient(
       128deg,
@@ -75,11 +75,12 @@ body {
       rgba(64, 76, 255, 1) 0%,
       rgba(174, 63, 255, 1) 100%
     );
-  }
+  } */
   
   .wrapper {
     display: flex;
     justify-content: center;
+  
   }
   .scene {
     width: 260px;

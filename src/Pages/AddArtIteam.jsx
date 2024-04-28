@@ -39,8 +39,7 @@ export const AddArtIteam = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((r) => {
-        console.log(r);
+      .then(() => {
         Swal.fire({
           title: "Iteam added succussfully",
           background: `#fff url(${bg})`,

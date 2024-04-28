@@ -1,46 +1,88 @@
-import React from "react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import "./style.css";
+import { useContext, useEffect, useState } from "react";
 
-const carousel = (slider) => {
-  const z = 300;
-  function rotate() {
-    const deg = 360 * slider.track.details.progress;
-    slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`;
-  }
-  slider.on("created", () => {
-    const deg = 360 / slider.slides.length;
-    slider.slides.forEach((element, idx) => {
-      element.style.transform = `rotateY(${deg * idx}deg) translateZ(${z}px)`;
-    });
-    rotate();
-  });
-  slider.on("detailsChanged", rotate);
-};
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const ReviewSlider = () => {
-  const [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-      selector: ".carousel__cell",
-      renderMode: "custom",
-      mode: "free-snap",
-    },
-    [carousel]
-  );
+  const [reviews, setreviews] = useState([]);
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/review")
+      .then((res) => res.json())
+      .then((r) => setreviews(r))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleReview = (e) => {
+    e.preventDefault();
+
+    if (user?.email) {
+      const review = e.target.review.value;
+      fetch("http://localhost:5000/review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          review,
+          author: user?.displayName || user?.email,
+        }),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          fetch("http://localhost:5000/review")
+            .then((res) => res.json())
+            .then((r) => setreviews(r))
+            .catch((err) => console.log(err));
+          Swal.fire({
+            title: "Iteam added succussfully",
+            icon: "success",
+            customClass: {
+              title: "text-[green]",
+            },
+          });
+          e.target.reset();
+        })
+        .catch((err) =>
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err}`,
+            customClass: {
+              title: "text-[red]",
+            },
+          })
+        );
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
-    <div className="wrapper">
-      <div className="scene">
-        <div className="carousel keen-slider" ref={sliderRef}>
-          <div className="carousel__cell number-slide1 ">1</div>
-          <div className="carousel__cell number-slide2">2</div>
-          <div className="carousel__cell number-slide3">3</div>
-          <div className="carousel__cell number-slide4">4</div>
-          <div className="carousel__cell number-slide5">5</div>
-          <div className="carousel__cell number-slide6">6</div>
-        </div>
+    <div>
+      <div className="">
+        {reviews &&
+          reviews.map((el) => {
+            return (
+              <div key={el._id} className="">
+                {el?.review}
+              </div>
+            );
+          })}
+      </div>
+
+      <div>
+        <form onSubmit={handleReview} action="">
+          <textarea
+            placeholder="write review"
+            className="border w-full"
+            name="review"
+            id=""
+            rows="5"
+          ></textarea>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     </div>
   );
