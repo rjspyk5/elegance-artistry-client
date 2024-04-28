@@ -5,8 +5,8 @@ import bg from "../assets/images/splash.png";
 export const ArtsCard = ({ art }) => {
   return (
     <div
-      className="card card-compact  shadow-xl
-    max-w-sm  shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03]  duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-base-300 "
+      className="card  shadow-lg
+      shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03]  duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-base-300 "
     >
       <figure>
         <img src={second} alt="Shoes" />
