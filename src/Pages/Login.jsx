@@ -12,9 +12,7 @@ export const Login = () => {
   const successToast = (msz) => toast.success(msz);
   const errorToast = (msz) => toast.error(msz);
 
-  const { logIn, googleLogIn } = useContext(AuthContext);
-
-  console.log(state);
+  const { logIn, googleLogIn, githubLogin } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,6 +25,9 @@ export const Login = () => {
           title: "Succussfully Login",
 
           icon: "success",
+          customClass: {
+            title: "text-[green]",
+          },
         });
         navigate(state ? state : "/");
       })
@@ -36,11 +37,29 @@ export const Login = () => {
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((r) => {
-        console.log(r);
         Swal.fire({
-          title: "Succussfully Login",
+          title: "Succussfully Login with google",
 
           icon: "success",
+          customClass: {
+            title: "text-[green]",
+          },
+        });
+        navigate(state ? state : "/");
+      })
+      .catch((err) => errorToast(`${err}`));
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then(() => {
+        Swal.fire({
+          title: "Succussfully Login with github",
+
+          icon: "success",
+          customClass: {
+            title: "text-[green]",
+          },
         });
         navigate(state ? state : "/");
       })
@@ -107,7 +126,7 @@ export const Login = () => {
               </Link>
             </h1>
             <button onClick={handleGoogleLogIn}>Google Login</button>
-            <button>Github Login</button>
+            <button onClick={handleGithubLogin}>Github Login</button>
           </div>
         </div>
       </div>

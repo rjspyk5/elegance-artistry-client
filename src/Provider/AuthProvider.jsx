@@ -5,11 +5,12 @@ import {
   onAuthStateChanged,
   updateProfile,
   GoogleAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase.config";
-import { GithubAuthProvider } from "firebase/auth/cordova";
+
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {

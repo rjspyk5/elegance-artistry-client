@@ -10,7 +10,7 @@ export const ReviewSlider = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://elegance-artistry-server.vercel.app/review")
       .then((res) => res.json())
       .then((r) => setreviews(r))
       .catch((err) => console.log(err));
@@ -21,7 +21,7 @@ export const ReviewSlider = () => {
 
     if (user?.email) {
       const review = e.target.review.value;
-      fetch("http://localhost:5000/review", {
+      fetch("https://elegance-artistry-server.vercel.app/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -31,12 +31,12 @@ export const ReviewSlider = () => {
       })
         .then((res) => res.json())
         .then(() => {
-          fetch("http://localhost:5000/review")
+          fetch("https://elegance-artistry-server.vercel.app/review")
             .then((res) => res.json())
             .then((r) => setreviews(r))
             .catch((err) => console.log(err));
           Swal.fire({
-            title: "Iteam added succussfully",
+            title: "Review added succussfully",
             icon: "success",
             customClass: {
               title: "text-[green]",

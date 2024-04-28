@@ -31,6 +31,9 @@ export const Register = () => {
               title: "Succussfully register",
 
               icon: "success",
+              customClass: {
+                title: "text-[green]",
+              },
             });
           })
           .catch((err) => errorToast(err));
