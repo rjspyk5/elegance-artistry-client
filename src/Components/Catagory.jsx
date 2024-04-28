@@ -8,6 +8,7 @@ export const Catagory = () => {
         heading="Categories"
         subheading=" Explore our curated collection of contemporary and traditional artworks"
       />
+      .grid.grid-cols-2.md:grid-cols-3
     </div>
   );
 };
