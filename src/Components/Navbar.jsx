@@ -1,8 +1,23 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../Provider/AuthProvider";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export const Navbar = () => {
+  const [darkMode, setdarkMode] = useState(
+    localStorage.getItem("darkMode")
+      ? localStorage.getItem("darkMode")
+      : "light"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+    document
+      .querySelector("html")
+      .setAttribute("data-theme", localStorage.getItem("darkMode"));
+  }, [darkMode]);
+
   const { user, logOut } = useContext(AuthContext);
   const menu = (
     <>
@@ -96,6 +111,14 @@ export const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{menu}</ul>
         </div>
         <div className="navbar-end space-x-2">
+          <input
+            onChange={(e) => {
+              e.target.checked ? setdarkMode("dark") : setdarkMode("light");
+            }}
+            type="checkbox"
+            checked={darkMode === "light" ? false : true}
+            className="toggle theme-controller"
+          />
           {user ? (
             <div className="dropdown dropdown-hover">
               <img

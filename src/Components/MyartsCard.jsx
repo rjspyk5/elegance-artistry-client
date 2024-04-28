@@ -9,7 +9,6 @@ export const MyartsCard = ({ art, handledelete }) => {
       <div className="card-body">
         <p>SubCatagory</p>
         <h2 className="card-title">{art._id}</h2>
-
         <p>Rating :</p>
         <p>Price :</p>
         <div className="flex justify-between">
