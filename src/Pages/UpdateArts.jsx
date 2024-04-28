@@ -31,7 +31,7 @@ export const UpdateArts = () => {
       rating,
       stock,
     };
-    fetch(`http://localhost:5000/art/${data._id}`, {
+    fetch(`https://elegance-artistry-server.vercel.app/art/${data._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataa),

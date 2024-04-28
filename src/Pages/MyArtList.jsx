@@ -11,7 +11,7 @@ export const MyArtList = () => {
   const [userArts, setuserArts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myart/${email}`)
+    fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
       .then((res) => res.json())
       .then((r) => setuserArts(r))
       .catch((err) => console.log(err));
@@ -19,7 +19,7 @@ export const MyArtList = () => {
 
   useEffect(() => {
     if (filter === "c") {
-      fetch(`http://localhost:5000/myart/${email}`)
+      fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
         .then((r) => {
           const up = r.filter((el) => el.customization === "Possible");
@@ -33,7 +33,7 @@ export const MyArtList = () => {
       setuserArts(up);
     }
     if (filter === "all") {
-      fetch(`http://localhost:5000/myart/${email}`)
+      fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
         .then((r) => setuserArts(r))
         .catch((err) => console.log(err));
@@ -50,7 +50,7 @@ export const MyArtList = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/art/${id}`, {
+        fetch(`https://elegance-artistry-server.vercel.app/art/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

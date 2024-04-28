@@ -33,7 +33,7 @@ export const AddArtIteam = () => {
       rating,
       stock,
     };
-    fetch("http://localhost:5000/art", {
+    fetch("https://elegance-artistry-server.vercel.app/art", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

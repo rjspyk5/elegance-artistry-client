@@ -5,7 +5,7 @@ import { ArtsCard } from "./ArtsCard";
 export const ArtsShowcase = () => {
   const [arts, setarts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/arts/six")
+    fetch("https://elegance-artistry-server.vercel.app/arts/six")
       .then((res) => res.json())
       .then((r) => setarts(r))
       .catch((err) => console.log(err));

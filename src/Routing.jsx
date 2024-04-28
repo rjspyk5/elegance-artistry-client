@@ -24,7 +24,7 @@ export const routes = createBrowserRouter([
       {
         path: "/arts",
         element: <AllArtAndCrafts />,
-        loader: () => fetch(`http://localhost:5000/arts`),
+        loader: () => fetch(`https://elegance-artistry-server.vercel.app/arts`),
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
@@ -52,7 +52,8 @@ export const routes = createBrowserRouter([
             <ArtDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://elegance-artistry-server.vercel.app/art/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -61,7 +62,8 @@ export const routes = createBrowserRouter([
             <UpdateArts />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://elegance-artistry-server.vercel.app/art/${params.id}`),
       },
     ],
   },
