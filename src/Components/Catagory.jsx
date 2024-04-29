@@ -1,34 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { CatagoryCard } from "./CatagoryCard";
-import cartoon from "../assets/images/catagory/cartoon.jpg";
-import chacrol from "../assets/images/catagory/chacrol.jpg";
-import landscape from "../assets/images/catagory/landscape.jpg";
-import oil from "../assets/images/catagory/oil painting2.jpg";
-import portrait from "../assets/images/catagory/protrait.jpeg";
-import water from "../assets/images/catagory/watercolor.jpg";
 
 export const Catagory = () => {
+  const [catagories, setcatagories] = useState([]);
+  useEffect(() => {
+    fetch("https://elegance-artistry-server.vercel.app/subcategory")
+      .then((res) => res.json())
+      .then((r) => {
+        setcatagories(r);
+        console.log(r);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
       <SectionHeading
         heading="Categories"
         subheading=" Explore our curated collection of contemporary and traditional artworks"
       />
+
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <CatagoryCard
-          photo={landscape}
-          title="Landscape Painting "
-        ></CatagoryCard>
-        <CatagoryCard photo={chacrol} title="Portrait Drawing"></CatagoryCard>
-        <CatagoryCard photo={oil} title="Watercolour Painting"></CatagoryCard>
-        <CatagoryCard photo={portrait} title="Oil Paintinge"></CatagoryCard>
-        <CatagoryCard photo={water} title="Charcoal Sketching"></CatagoryCard>
-        <CatagoryCard
-          photo={cartoon}
-          title="
-Cartoon Drawing"
-        ></CatagoryCard>
+        {catagories.map((el) => (
+          <CatagoryCard key={el._id} catagoryInfo={el} />
+        ))}
       </div>
     </div>
   );

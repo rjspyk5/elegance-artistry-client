@@ -3,10 +3,11 @@ import { AuthContext } from "../Provider/AuthProvider";
 import bg from "../assets/images/bgnew.png";
 
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export const AddArtIteam = () => {
   const { user } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleAddItem = (e) => {
     e.preventDefault();
     const art_name = e.target.name.value;
@@ -14,7 +15,7 @@ export const AddArtIteam = () => {
     const photo = e.target.photo.value;
     const email = user?.email;
     const username = user?.displayName || "unknown";
-    const subcategory = e.target.subcategory.value;
+    const subcategory_Name = e.target.subcategory.value;
     const price = e.target.price.value;
     const process_time = e.target.time.value;
     const customization = e.target.customization.value;
@@ -26,7 +27,7 @@ export const AddArtIteam = () => {
       photo,
       username,
       email,
-      subcategory,
+      subcategory_Name,
       price,
       process_time,
       customization,
@@ -140,7 +141,7 @@ export const AddArtIteam = () => {
                   <option value="Watercolour Painting">
                     Watercolour Painting
                   </option>
-                  <option value="Oil Paintinge">Oil Painting</option>
+                  <option value="Oil Painting">Oil Painting</option>
                   <option value="Charcoal Sketching">Charcoal Sketching</option>
                   <option value="Cartoon Drawing">Cartoon Drawing</option>
                 </select>

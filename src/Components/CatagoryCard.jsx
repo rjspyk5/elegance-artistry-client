@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const CatagoryCard = ({ title, photo }) => {
+export const CatagoryCard = ({ catagoryInfo: { subcategory_Name, image } }) => {
   return (
-    <div
+    <Link
+      to={`/catagory/${subcategory_Name}`}
       className={`card flex py-10 space-y-4 flex-col justify-center items-center hover:bg-base-100 bg-base-300 bg-contain hover:cursor-pointer shadow-xl`}
     >
-      <img className="w-28 h-20 rounded-xl" src={photo} alt="" />
-      <div className="font-bold text-lg">{title}</div>
-    </div>
+      <img className="w-28 h-20 rounded-xl" src={image} alt="" />
+      <div className="font-bold text-lg">{subcategory_Name}</div>
+    </Link>
   );
 };

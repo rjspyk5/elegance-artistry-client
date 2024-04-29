@@ -14,7 +14,7 @@ export const ArtsCard = ({ art }) => {
       <div className="card-body">
         <div>
           <span className=" rounded-lg  text-white p-1 px-3 backdrop-blur-lg bg-[#37f80c5f]">
-            {art.subcategory}
+            {art.subcategory_Name}
           </span>
         </div>
 

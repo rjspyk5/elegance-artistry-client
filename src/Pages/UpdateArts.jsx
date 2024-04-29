@@ -12,7 +12,7 @@ export const UpdateArts = () => {
     const photo = e.target.photo.value;
     const email = data.email;
     const username = data.displayName || "unknown";
-    const subcategory = e.target.subcategory.value;
+    const subcategory_Name = e.target.subcategory.value;
     const price = e.target.price.value;
     const process_time = e.target.time.value;
     const customization = e.target.customization.value;
@@ -24,7 +24,7 @@ export const UpdateArts = () => {
       photo,
       username,
       email,
-      subcategory,
+      subcategory_Name,
       price,
       process_time,
       customization,
@@ -135,7 +135,7 @@ export const UpdateArts = () => {
                 <label htmlFor="name">Subcategory</label>
                 <br />
                 <select
-                  defaultValue={data.subcategory}
+                  defaultValue={data.subcategory_Name}
                   name="subcategory"
                   className="p-2 w-full"
                 >
@@ -144,7 +144,7 @@ export const UpdateArts = () => {
                   <option value="Watercolour Painting">
                     Watercolour Painting
                   </option>
-                  <option value="Oil Paintinge">Oil Painting</option>
+                  <option value="Oil Painting">Oil Painting</option>
                   <option value="Charcoal Sketching">Charcoal Sketching</option>
                   <option value="Cartoon Drawing">Cartoon Drawing</option>
                 </select>

@@ -10,6 +10,7 @@ import { Register } from "./Pages/Register";
 import { ErrorPage } from "./Components/ErrorPage";
 import { ArtDetails } from "./Pages/ArtDetails";
 import { UpdateArts } from "./Pages/UpdateArts";
+import { SubCatagoryData } from "./Components/SubCatagoryData";
 
 export const routes = createBrowserRouter([
   {
@@ -64,6 +65,18 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://elegance-artistry-server.vercel.app/art/${params.id}`),
+      },
+      {
+        path: "/catagory/:sub",
+        element: (
+          <PrivateRoute>
+            <SubCatagoryData />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://elegance-artistry-server.vercel.app/catagory/${params.sub}`
+          ),
       },
     ],
   },
