@@ -4,7 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 export const ArtDetails = () => {
   const artData = useLoaderData();
   const navigate = useNavigate();
-  console.log(artData);
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 font-work-sans">

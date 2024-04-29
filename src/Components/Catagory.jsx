@@ -26,7 +26,7 @@ export const Catagory = () => {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {catagories.map((el) => (
           <CatagoryCard key={el._id} catagoryInfo={el} />
         ))}
