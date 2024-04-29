@@ -9,21 +9,26 @@ export const MyArtList = () => {
 
   const [filter, setfilter] = useState("all ");
   const [userArts, setuserArts] = useState([]);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
       .then((res) => res.json())
-      .then((r) => setuserArts(r))
+      .then((r) => {
+        setloading(false);
+        setuserArts(r);
+      })
       .catch((err) => console.log(err));
   }, [email]);
 
   useEffect(() => {
     if (filter === "c") {
+      setloading(true);
       fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
         .then((r) => {
           const up = r.filter((el) => el.customization === "Possible");
-
+          setloading(false);
           setuserArts(up);
         })
         .catch((err) => console.log(err));
@@ -33,9 +38,13 @@ export const MyArtList = () => {
       setuserArts(up);
     }
     if (filter === "all") {
+      setloading(true);
       fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
-        .then((r) => setuserArts(r))
+        .then((r) => {
+          setloading(false);
+          setuserArts(r);
+        })
         .catch((err) => console.log(err));
     }
   }, [filter]);
@@ -50,6 +59,7 @@ export const MyArtList = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
+        setloading(true);
         fetch(`https://elegance-artistry-server.vercel.app/art/${id}`, {
           method: "DELETE",
         })
@@ -60,6 +70,7 @@ export const MyArtList = () => {
               icon: "success",
             });
             const updateArts = userArts.filter((el) => el._id != id);
+            setloading(false);
             setuserArts(updateArts);
           })
           .catch((err) => console.log(err));
@@ -79,6 +90,11 @@ export const MyArtList = () => {
         <option value="c">Customizable</option>
         <option value="no">Not Customizable</option>
       </select>
+      {loading && (
+        <div className="flex justify-center items-center min-h-[200px]">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {userArts.map((el) => (
