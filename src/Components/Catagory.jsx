@@ -4,12 +4,13 @@ import { CatagoryCard } from "./CatagoryCard";
 
 export const Catagory = () => {
   const [catagories, setcatagories] = useState([]);
+  const [loading, setloading] = useState(true);
   useEffect(() => {
     fetch("https://elegance-artistry-server.vercel.app/subcategory")
       .then((res) => res.json())
       .then((r) => {
+        setloading(false);
         setcatagories(r);
-        console.log(r);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -20,7 +21,11 @@ export const Catagory = () => {
         heading="Categories"
         subheading=" Explore our curated collection of contemporary and traditional artworks"
       />
-
+      {loading && (
+        <div className="flex justify-center items-center min-h-[200px]">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      )}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {catagories.map((el) => (
           <CatagoryCard key={el._id} catagoryInfo={el} />
