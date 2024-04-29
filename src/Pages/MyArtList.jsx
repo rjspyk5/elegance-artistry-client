@@ -18,7 +18,7 @@ export const MyArtList = () => {
         setloading(false);
         setuserArts(r);
       })
-      .catch((err) => console.log(err));
+      .catch(() => setloading(false));
   }, [email]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const MyArtList = () => {
           setloading(false);
           setuserArts(up);
         })
-        .catch((err) => console.log(err));
+        .catch(() => setloading(false));
     }
     if (filter === "no") {
       const up = userArts.filter((el) => el.customization === "Not Possible");
@@ -45,7 +45,7 @@ export const MyArtList = () => {
           setloading(false);
           setuserArts(r);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => setloading(false));
     }
   }, [filter]);
 
@@ -73,7 +73,7 @@ export const MyArtList = () => {
             setloading(false);
             setuserArts(updateArts);
           })
-          .catch((err) => console.log(err));
+          .catch((err) => setloading(false));
       }
     });
   };
