@@ -3,7 +3,8 @@ import { ArtsShowcase } from "../Components/ArtsShowcase";
 import { ReviewSlider } from "../Components/ReviewSlider/ReviewSlider";
 import { Catagory } from "../Components/Catagory";
 import { FAQ } from "../Components/FAQ";
-import { Fade, JackInTheBox } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
+
 export const Home = () => {
   return (
     <div className=" ">
@@ -22,7 +23,7 @@ export const Home = () => {
           <ReviewSlider />
         </Fade>
         <Fade duration={500}>
-          <FAQ />
+          <FAQ></FAQ>
         </Fade>
       </div>
     </div>

@@ -6,6 +6,7 @@ export const FAQ = () => {
       <div>
         <SectionHeading heading="Frequently Asked Questions" />
       </div>
+
       <div className="space-y-2 my-8">
         <div className="collapse collapse-plus bg-base-200">
           <input type="radio" name="my-accordion-3" defaultChecked />
