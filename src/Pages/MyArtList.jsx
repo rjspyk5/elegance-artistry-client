@@ -89,16 +89,18 @@ export const MyArtList = () => {
 
   return (
     <>
-      <select
-        onChange={(e) => setfilter(e.target.value)}
-        name="rating"
-        defaultValue={"all"}
-        className="p-2 select select-bordered"
-      >
-        <option value="all">All data</option>
-        <option value="c">Customizable</option>
-        <option value="no">Not Customizable</option>
-      </select>
+      <div className="my-10">
+        <select
+          onChange={(e) => setfilter(e.target.value)}
+          name="rating"
+          defaultValue={"all"}
+          className="p-2 select select-bordered"
+        >
+          <option value="all">All data</option>
+          <option value="c">Customizable</option>
+          <option value="no">Not Customizable</option>
+        </select>
+      </div>
 
       {loading && (
         <div className="flex justify-center items-center min-h-[200px]">

@@ -2,7 +2,7 @@ import second from "../assets/images/bg2.jpg";
 import { Link } from "react-router-dom";
 export const MyartsCard = ({ art, handledelete }) => {
   return (
-    <div className="card card-compact shadow-xl">
+    <div className="card card-compact bg-base-200 shadow-xl">
       <figure>
         <img src={art.photo} alt="Art image" />
       </figure>
