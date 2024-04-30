@@ -72,8 +72,8 @@ export const ReviewSlider = () => {
     dots: true,
     infinite: true,
 
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
@@ -89,10 +89,10 @@ export const ReviewSlider = () => {
             <span className="loading loading-spinner loading-lg"></span>
           </div>
         )}
-        <div className="max-w-[550px] mx-auto">
+        <div className=" mx-auto">
           <Slider {...settings}>
             {reviews &&
-              reviews.slice(-4).map((el) => {
+              reviews.slice(-7).map((el) => {
                 return <ReviewCard key={el._id} review={el} />;
               })}
           </Slider>

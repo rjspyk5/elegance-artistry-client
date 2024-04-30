@@ -4,7 +4,7 @@ export const AllArtAndCrafts = () => {
   const artsData = useLoaderData();
 
   return (
-    <div>
+    <div className="my-10 bg-base-200 p-5 rounded-lg">
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -38,7 +38,7 @@ export const AllArtAndCrafts = () => {
                     {" "}
                     <Link
                       to={`/art/${el._id}`}
-                      className="btn btn-ghost btn-sm"
+                      className="btn btn-ghost bg-lime-500 text-white btn-sm"
                     >
                       {" "}
                       View Details
