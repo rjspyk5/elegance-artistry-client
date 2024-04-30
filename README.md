@@ -1,8 +1,18 @@
-# React + Vite
+# Elegance Artistary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Elegance Artistary](https://elegance-artistry.web.app/)
 
-Currently, two official plugins are available:
+Catagory : Painting and Drawing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Browse a curated collection of artworks, including paintings, drawing, and more.
+- Add, edit, and delete artworks as an authenticated user.
+- Leave reviews and ratings for your favorite artworks.
+- User authentication system with login and logout functionality.
+- Engaging typewriter effect to enhance the user experience.
+
+## Usage Packages
+
+- React Awesome Reveal
+- React Typewriter
