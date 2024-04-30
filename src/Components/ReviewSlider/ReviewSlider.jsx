@@ -115,7 +115,7 @@ export const ReviewSlider = () => {
             <span className="loading loading-spinner loading-lg"></span>
           </div>
         )}
-        <div className=" mx-auto">
+        <div className=" mx-auto max-w-[90%] md:w-full">
           <Slider {...settings}>
             {reviews &&
               reviews.slice(-7).map((el) => {
