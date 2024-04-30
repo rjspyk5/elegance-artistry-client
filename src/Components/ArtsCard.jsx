@@ -9,7 +9,7 @@ export const ArtsCard = ({ art }) => {
       shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03]  duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-base-300 "
     >
       <figure>
-        <img src={second} alt="Shoes" />
+        <img src={art.photo} alt="Art image" />
       </figure>
       <div className="card-body">
         <div>
@@ -18,7 +18,7 @@ export const ArtsCard = ({ art }) => {
           </span>
         </div>
 
-        <h2 className="card-title ">{art.art_name}</h2>
+        <h2 className="card-title text-3xl font-bold">{art.art_name}</h2>
 
         <p>Rating : {art.rating}</p>
 

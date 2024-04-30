@@ -64,15 +64,30 @@ export const AddArtIteam = () => {
       );
   };
   return (
-    <div>
-      <button className="" onClick={() => navigate(-1)}>
-        Go back
+    <div className="mt-5">
+      <button
+        className="btn bg-lime-500 text-white"
+        onClick={() => navigate(-1)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+        back
       </button>
-      <div className="flex flex-col justify-center items-center">
-        <div className="bg-[#F4F3F0] mt-10 py-16 px-24 max-w-[1000px] rounded-md">
-          <h1 className="text-[#374151] text-3xl  text-center">
-            Add Your Arts Iteams
-          </h1>
+      <div className="flex  flex-col justify-center items-center">
+        <div className="bg-base-200 mb-10 py-16 px-24 max-w-[1000px] w-full md:w-8/12 card rounded-lg">
+          <h1 className=" text-3xl  text-center">Add Your Arts Iteams</h1>
 
           <form onSubmit={handleAddItem} action="" className="mt-4">
             <label>Arts Name</label>
@@ -81,14 +96,14 @@ export const AddArtIteam = () => {
               name="name"
               type="text"
               placeholder="Name of the art"
-              className="w-full p-1 mb-3"
+              className="w-full p-1 rounded-md mb-3"
             />
             <br />
             <label>Description</label>
             <br />
             <textarea
               name="description"
-              placeholder="Photo Url"
+              placeholder="Write the description"
               className="w-full p-1 mb-3 rounded-md "
               rows="5"
             ></textarea>
@@ -195,7 +210,7 @@ export const AddArtIteam = () => {
             <input
               type="submit"
               value="Add Arts"
-              className="w-full p-1  cursor-pointer  rounded-md "
+              className="w-full bg-lime-500 text-white btn p-1  cursor-pointer  rounded-md "
             />
           </form>
         </div>

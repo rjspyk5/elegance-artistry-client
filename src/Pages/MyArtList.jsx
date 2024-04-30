@@ -7,7 +7,7 @@ export const MyArtList = () => {
     user: { email },
   } = useContext(AuthContext);
 
-  const [filter, setfilter] = useState("all ");
+  const [filter, setfilter] = useState("all");
   const [userArts, setuserArts] = useState([]);
   const [loading, setloading] = useState(true);
 
@@ -23,21 +23,31 @@ export const MyArtList = () => {
 
   useEffect(() => {
     if (filter === "c") {
+      setuserArts([]);
       setloading(true);
       fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
         .then((r) => {
           const up = r.filter((el) => el.customization === "Possible");
-          setloading(false);
           setuserArts(up);
+          setloading(false);
         })
         .catch(() => setloading(false));
     }
     if (filter === "no") {
-      const up = userArts.filter((el) => el.customization === "Not Possible");
-      setuserArts(up);
+      setuserArts([]);
+      setloading(true);
+      fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
+        .then((res) => res.json())
+        .then((r) => {
+          const up = r.filter((el) => el.customization === "Not Possible");
+          setuserArts(up);
+          setloading(false);
+        })
+        .catch(() => setloading(false));
     }
     if (filter === "all") {
+      setuserArts([]);
       setloading(true);
       fetch(`https://elegance-artistry-server.vercel.app/myart/${email}`)
         .then((res) => res.json())
@@ -45,7 +55,7 @@ export const MyArtList = () => {
           setloading(false);
           setuserArts(r);
         })
-        .catch((err) => setloading(false));
+        .catch(() => setloading(false));
     }
   }, [filter]);
 
@@ -59,7 +69,6 @@ export const MyArtList = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        setloading(true);
         fetch(`https://elegance-artistry-server.vercel.app/art/${id}`, {
           method: "DELETE",
         })
@@ -70,36 +79,44 @@ export const MyArtList = () => {
               icon: "success",
             });
             const updateArts = userArts.filter((el) => el._id != id);
-            setloading(false);
+
             setuserArts(updateArts);
           })
-          .catch((err) => setloading(false));
+          .catch((err) => console.log(err));
       }
     });
   };
 
   return (
     <>
-      <label htmlFor="">Fiter</label>
       <select
         onChange={(e) => setfilter(e.target.value)}
         name="rating"
-        className="p-2 "
+        defaultValue={"all"}
+        className="p-2 select select-bordered"
       >
         <option value="all">All data</option>
         <option value="c">Customizable</option>
         <option value="no">Not Customizable</option>
       </select>
+
       {loading && (
         <div className="flex justify-center items-center min-h-[200px]">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       )}
-
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {userArts.map((el) => (
-          <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
-        ))}
+      <div className="min-h-[500px]">
+        {!loading && userArts.length < 1 ? (
+          <div className="flex justify-center min-h-[500px] items-center">
+            <h1 className="text-2xl font-bold">No record Found</h1>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {userArts.map((el) => (
+              <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

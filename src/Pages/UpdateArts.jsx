@@ -61,15 +61,30 @@ export const UpdateArts = () => {
       );
   };
   return (
-    <div>
-      <button className="" onClick={() => navigate(-1)}>
-        Go back
+    <div className="mt-5">
+      <button
+        className="btn bg-lime-500 text-white"
+        onClick={() => navigate(-1)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+        back
       </button>
       <div className="flex flex-col justify-center items-center">
-        <div className="bg-[#F4F3F0] mt-10 py-16 px-24 max-w-[1000px] rounded-md">
-          <h1 className="text-[#374151] text-3xl  text-center">
-            Add Your Arts Iteams
-          </h1>
+        <div className="bg-base-200 card mb-10 py-16 px-24 max-w-[1000px] rounded-lg">
+          <h1 className="text-3xl  text-center">Update Details</h1>
 
           <form onSubmit={handlepdate} action="" className="mt-4">
             <label>Arts Name</label>
@@ -79,7 +94,7 @@ export const UpdateArts = () => {
               name="name"
               type="text"
               placeholder="Name of the art"
-              className="w-full p-1 mb-3"
+              className="w-full rounded-md p-1 mb-3"
             />
             <br />
             <label>Description</label>
@@ -87,7 +102,7 @@ export const UpdateArts = () => {
             <textarea
               defaultValue={data.description}
               name="description"
-              placeholder="Photo Url"
+              placeholder="Description"
               className="w-full p-1 mb-3 rounded-md "
               rows="5"
             ></textarea>
@@ -152,6 +167,7 @@ export const UpdateArts = () => {
                 <label>Rating</label>
                 <br />
                 <input
+                  defaultValue={data?.rating}
                   name="rating"
                   type="text"
                   placeholder="Rating"
@@ -206,8 +222,8 @@ export const UpdateArts = () => {
 
             <input
               type="submit"
-              value="Add Arts"
-              className="w-full p-1  cursor-pointer  rounded-md "
+              value="Update Changes"
+              className="w-full p-1 bg-lime-500 text-white btn cursor-pointer  rounded-md "
             />
           </form>
         </div>
