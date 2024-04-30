@@ -5,6 +5,7 @@ import bg from "../assets/images/bgnew.png";
 export const UpdateArts = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
+
   const handlepdate = (e) => {
     e.preventDefault();
     const art_name = e.target.name.value;
@@ -60,6 +61,7 @@ export const UpdateArts = () => {
         })
       );
   };
+
   return (
     <div className="mt-5">
       <button
@@ -124,7 +126,7 @@ export const UpdateArts = () => {
                 <br />
                 <input
                   name="user"
-                  defaultValue={data?.displayName || "unknown"}
+                  defaultValue={data?.username || "unknown"}
                   placeholder="UserName"
                   type="text"
                   className="w-full p-1 mb-3"

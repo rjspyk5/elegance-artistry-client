@@ -25,13 +25,13 @@ export const AllArtAndCrafts = () => {
                   <th className="px-1 md:px-3">{idx + 1}</th>
                   <td className="px-1 md:px-3">
                     <div className="avatar">
-                      <div className="mask mask-squircle w-8 h-8 md:w-12 md:h-12">
+                      <div className="mask mask-squircle w-8 h-8 md:w-20 md:h-16">
                         <img src={el.photo} alt="Arts image" />
                       </div>
                     </div>
                   </td>
-                  <td className="px-1 md:px-3">{el.arts_name}</td>
-                  <td className="px-1 md:px-3">{el.price}</td>
+                  <td className="px-1 md:px-3">{el.art_name}</td>
+                  <td className="px-1 md:px-3">{el.price && `$${el.price}`}</td>
                   <td className="px-1 md:px-3">{el.stock}</td>
                   <td className="px-1 md:px-3">{el.email}</td>
                   <td className="px-1 md:px-3">

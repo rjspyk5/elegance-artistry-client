@@ -109,11 +109,11 @@ export const MyArtList = () => {
       )}
       <div className="min-h-[500px] mb-10">
         {!loading && userArts.length < 1 ? (
-          <div className="flex justify-center min-h-[500px] items-center">
+          <div className="flex justify-center min-h-[300px] items-center">
             <h1 className="text-2xl font-bold">No record Found</h1>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {userArts.map((el) => (
               <MyartsCard handledelete={handleDelete} art={el} key={el._id} />
             ))}

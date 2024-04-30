@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import bg from "../assets/images/bg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 export const Register = () => {
   const errorToast = (msz) => toast.error(msz);
   const { signUp, updateInfo } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -28,13 +29,13 @@ export const Register = () => {
         updateInfo(res.user, name, photo)
           .then(() => {
             Swal.fire({
-              title: "Succussfully register",
-
+              title: "Registration Sucessfull",
               icon: "success",
               customClass: {
                 title: "text-[green]",
               },
             });
+            navigate("/");
           })
           .catch((err) => errorToast(err));
       })

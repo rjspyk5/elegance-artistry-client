@@ -33,7 +33,7 @@ export const Login = () => {
         });
         navigate(state ? state : "/");
       })
-      .catch((err) => errorToast(`${err}`));
+      .catch(() => errorToast(`Invalid Email Or Password`));
   };
 
   const handleGoogleLogIn = () => {

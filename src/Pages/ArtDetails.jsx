@@ -10,7 +10,7 @@ export const ArtDetails = () => {
         <img
           src={artData.photo}
           alt="Art Image"
-          className="rounded-md md:max-w-[300px] max-w-[200px]"
+          className="rounded-md h-[3000px] w-full md:h-[100%] "
         />
 
         <div>
@@ -35,7 +35,7 @@ export const ArtDetails = () => {
               </tr>
               <tr>
                 <td className="font-semibold text-lg">Price:</td>
-                <td> {artData.price}</td>
+                <td> {artData.price && `$${artData.price}`}</td>
               </tr>
               <tr>
                 <td className="font-semibold text-lg">Rating:</td>
@@ -46,8 +46,8 @@ export const ArtDetails = () => {
                 <td> {artData.customization}</td>
               </tr>
               <tr>
-                <td className="font-semibold text-lg">Subcategory:</td>
-                <td>{artData.subcategory}</td>
+                <td className="font-semibold text-lg">Category:</td>
+                <td>{artData.subcategory_Name}</td>
               </tr>
               <tr>
                 <td className="font-semibold text-lg">Process Time:</td>

@@ -8,7 +8,7 @@ export const ArtsCard = ({ art }) => {
       shadow-[0px 3px 0px #E5E7EB33] hover:scale-[1.03]  duration-[1s] backdrop-blur-md   border-gray-600 hover:border-white  bg-base-300 "
     >
       <figure>
-        <img src={art.photo} alt="Art image" />
+        <img className="w-full h-[244px]" src={art.photo} alt="Art image" />
       </figure>
       <div className="card-body">
         <div>
@@ -17,12 +17,14 @@ export const ArtsCard = ({ art }) => {
           </span>
         </div>
 
-        <h2 className="card-title text-3xl font-bold">{art.art_name}</h2>
+        <h2 className="card-title text-xl font-bold">{art.art_name}</h2>
 
         <p>Rating : {art.rating}</p>
 
         <div className="flex justify-between items-center">
-          <p className=" font-bold text-2xl">Price : {art.price}</p>
+          <p className=" font-bold text-2xl">
+            Price : {art.price && `$${art.price}`}
+          </p>
           <Link
             style={{
               backgroundImage: `url(${bg})`,
