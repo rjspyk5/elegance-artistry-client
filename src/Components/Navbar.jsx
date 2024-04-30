@@ -76,7 +76,7 @@ export const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky  top-0 z-50 bg-[#ffffff28] backdrop-blur-lg">
+    <div className="sticky  top-0 z-50 bg-base-200 backdrop-blur-lg">
       <div className="navbar  max-w-[1100px] mx-auto">
         <div className="navbar-start ">
           <div className="dropdown">

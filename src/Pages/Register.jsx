@@ -41,7 +41,7 @@ export const Register = () => {
       .catch((err) => errorToast(err));
   };
   return (
-    <div className="">
+    <div className="mx-3">
       <ToastContainer
         position="top-center"
         autoClose={2500}
@@ -112,7 +112,9 @@ export const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-main text-[white]">Login</button>
+                <button className="btn bg-lime-500 text-[white]">
+                  Register
+                </button>
               </div>
             </form>
             <h1 className="text-[white] text-center font-semibold">

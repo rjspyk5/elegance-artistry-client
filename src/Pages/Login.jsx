@@ -68,7 +68,7 @@ export const Login = () => {
       .catch((err) => errorToast(`${err}`));
   };
   return (
-    <div className="">
+    <div className=" mx-3 my-5">
       <ToastContainer
         position="top-center"
         autoClose={2500}
@@ -117,7 +117,7 @@ export const Login = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-main text-[white]">Login</button>
+                <button className="btn  bg-lime-500 text-[white]">Login</button>
               </div>
             </form>
             <h1 className="text-[white] text-center font-semibold">
