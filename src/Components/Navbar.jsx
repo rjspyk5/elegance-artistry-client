@@ -114,7 +114,7 @@ export const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menu}</ul>
         </div>
-        <div className="navbar-end space-x-2">
+        <div className="navbar-end space-x-1 md:space-x-2">
           <input
             onChange={(e) => {
               e.target.checked ? setdarkMode("dark") : setdarkMode("light");

@@ -10,7 +10,7 @@ export const ArtDetails = () => {
         <img
           src={artData.photo}
           alt="Art Image"
-          className="rounded-md h-[3000px] w-full md:h-[100%] "
+          className="rounded-md h-[280px] w-full md:h-[100%] "
         />
 
         <div>

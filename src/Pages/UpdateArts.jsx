@@ -63,9 +63,9 @@ export const UpdateArts = () => {
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5  ">
       <button
-        className="btn bg-lime-500 text-white"
+        className="btn bg-lime-500 mb-5 mx-2 text-white"
         onClick={() => navigate(-1)}
       >
         <svg
@@ -84,8 +84,8 @@ export const UpdateArts = () => {
         </svg>
         back
       </button>
-      <div className="flex flex-col justify-center items-center">
-        <div className="bg-base-200 card mb-10 py-16 px-24 max-w-[1000px] rounded-lg">
+      <div className="flex mx-2  flex-col justify-center items-center">
+        <div className="bg-base-200 card mb-10 py-16 px-3  md:px-24 max-w-[1000px] w-full md:w-8/12 rounded-lg">
           <h1 className="text-3xl  text-center">Update Details</h1>
 
           <form onSubmit={handlepdate} action="" className="mt-4">

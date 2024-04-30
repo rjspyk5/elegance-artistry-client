@@ -64,9 +64,9 @@ export const AddArtIteam = () => {
       );
   };
   return (
-    <div className="mt-5">
+    <div className="mt-5 mx-2">
       <button
-        className="btn bg-lime-500 text-white"
+        className="btn bg-lime-500 mb-2 text-white"
         onClick={() => navigate(-1)}
       >
         <svg
@@ -86,7 +86,7 @@ export const AddArtIteam = () => {
         back
       </button>
       <div className="flex  flex-col justify-center items-center">
-        <div className="bg-base-200 mb-10 py-16 px-24 max-w-[1000px] w-full md:w-8/12 card rounded-lg">
+        <div className="bg-base-200 mb-10 py-16 px-2 md:px-24 max-w-[1000px] w-full md:w-8/12 card rounded-lg">
           <h1 className=" text-3xl  text-center">Add Your Arts Iteams</h1>
 
           <form onSubmit={handleAddItem} action="" className="mt-4">
