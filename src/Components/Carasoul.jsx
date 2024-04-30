@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import "./style.css";
 import slider from "../assets/images/slider/slider.jpg";
 import slider1 from "../assets/images/slider/slider1.jpg";
 import slider2 from "../assets/images/slider/slider2.jpg";
-import slider3 from "../assets/images/slider/slider3.jpg";
+
 export const Carasoul = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);

@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase.config";
+import PropTypes from "prop-types";
 
 export const AuthContext = createContext(null);
 
@@ -64,4 +65,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={userinfo}>{children}</AuthContext.Provider>
   );
+};
+AuthProvider.propTypes = {
+  children: PropTypes.node,
 };

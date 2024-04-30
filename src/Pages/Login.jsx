@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bg from "../assets/images/bgcenter.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +11,7 @@ import { FaGithub } from "react-icons/fa";
 export const Login = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const successToast = (msz) => toast.success(msz);
+
   const errorToast = (msz) => toast.error(msz);
 
   const { logIn, googleLogIn, githubLogin } = useContext(AuthContext);

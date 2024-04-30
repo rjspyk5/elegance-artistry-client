@@ -1,7 +1,6 @@
-import React from "react";
-import second from "../assets/images/bg2.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import bg from "../assets/images/splash.png";
+import PropTypes from "prop-types";
 export const ArtsCard = ({ art }) => {
   return (
     <div
@@ -37,4 +36,8 @@ export const ArtsCard = ({ art }) => {
       </div>
     </div>
   );
+};
+
+ArtsCard.propTypes = {
+  art: PropTypes.object,
 };

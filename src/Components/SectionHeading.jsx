@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 export const SectionHeading = ({ heading, subheading }) => {
   return (
@@ -11,4 +11,9 @@ export const SectionHeading = ({ heading, subheading }) => {
       <p className="text-center opacity-60 py-2">{subheading}</p>
     </div>
   );
+};
+
+SectionHeading.propTypes = {
+  heading: PropTypes.string,
+  subheading: PropTypes.string,
 };

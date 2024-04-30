@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import bg from "../assets/images/bg.png";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";

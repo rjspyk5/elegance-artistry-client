@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export const CatagoryCard = ({ catagoryInfo: { subcategory_Name, image } }) => {
@@ -11,4 +11,7 @@ export const CatagoryCard = ({ catagoryInfo: { subcategory_Name, image } }) => {
       <div className="font-bold text-lg">{subcategory_Name}</div>
     </Link>
   );
+};
+CatagoryCard.propTypes = {
+  catagoryInfo: PropTypes.object,
 };

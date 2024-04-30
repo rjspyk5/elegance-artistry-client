@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 export const ReviewCard = ({ review }) => {
   return (
@@ -19,4 +19,8 @@ export const ReviewCard = ({ review }) => {
       </div>
     </div>
   );
+};
+
+ReviewCard.propTypes = {
+  review: PropTypes.object,
 };

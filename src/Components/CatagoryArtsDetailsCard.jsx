@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const CatagoryArtsDetailsCard = ({ art }) => {
   return (
@@ -41,4 +42,7 @@ export const CatagoryArtsDetailsCard = ({ art }) => {
       </div>
     </div>
   );
+};
+CatagoryArtsDetailsCard.propTypes = {
+  art: PropTypes.object,
 };

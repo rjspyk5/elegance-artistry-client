@@ -1,4 +1,4 @@
-import second from "../assets/images/bg2.jpg";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 export const MyartsCard = ({ art, handledelete }) => {
   return (
@@ -38,4 +38,8 @@ export const MyartsCard = ({ art, handledelete }) => {
       </div>
     </div>
   );
+};
+MyartsCard.propTypes = {
+  art: PropTypes.object,
+  handledelete: PropTypes.func,
 };
