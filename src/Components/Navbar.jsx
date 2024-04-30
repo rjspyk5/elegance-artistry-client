@@ -132,6 +132,7 @@ export const Navbar = () => {
                 src={user.photoURL}
                 alt="UsrImage"
               />
+
               <ul
                 tabIndex={0}
                 className="dropdown-content z-[500] z  space-y-2  right-[-8px] menu p-2 shadow bg-base-100 rounded-box w-auto"

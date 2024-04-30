@@ -7,6 +7,7 @@ import slider1 from "../assets/images/slider/slider1.jpg";
 import slider2 from "../assets/images/slider/slider2.jpg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 export const Carasoul = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,7 +38,7 @@ export const Carasoul = () => {
           if (mouseOver) return;
           timeout = setTimeout(() => {
             slider.next();
-          }, 1500);
+          }, 2500);
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
@@ -71,7 +72,18 @@ export const Carasoul = () => {
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-3xl font-bold">
-                  Expore our Art World
+                  Expore our Art
+                  <span style={{ color: "red", fontWeight: "bold" }}>
+                    <Typewriter
+                      words={["World", "Universe", "Gallery"]}
+                      loop={5}
+                      cursor
+                      cursorStyle="_"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={500}
+                    />
+                  </span>
                 </h1>
                 <p className="mb-5">Immerse yourself in creativity</p>
                 {!user ? (
@@ -98,7 +110,18 @@ export const Carasoul = () => {
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-3xl font-bold">
-                  Expore our Art World
+                  Expore our Art
+                  <span style={{ color: "red", fontWeight: "bold" }}>
+                    <Typewriter
+                      words={["World", "Universe", "Gallery"]}
+                      loop={5}
+                      cursor
+                      cursorStyle="_"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={500}
+                    />
+                  </span>
                 </h1>
                 <p className="mb-5">Immerse yourself in creativity</p>
                 {!user ? (
@@ -125,7 +148,18 @@ export const Carasoul = () => {
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
                 <h1 className="mb-5 text-3xl font-bold">
-                  Expore our Art World
+                  Expore our Art
+                  <span style={{ color: "red", fontWeight: "bold" }}>
+                    <Typewriter
+                      words={["World", "Universe", "Gallery"]}
+                      loop={5}
+                      cursor
+                      cursorStyle="_"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={500}
+                    />
+                  </span>
                 </h1>
                 <p className="mb-5">Immerse yourself in creativity</p>
                 {!user ? (
