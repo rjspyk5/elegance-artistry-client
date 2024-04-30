@@ -19,7 +19,7 @@ export const Catagory = () => {
     <div>
       <SectionHeading
         heading="Categories"
-        subheading=" Explore our curated collection of contemporary and traditional artworks"
+        subheading="Discover the beauty of nature depicted in stunning landscape paintings and drawings."
       />
       {loading && (
         <div className="flex justify-center items-center min-h-[200px]">
