@@ -80,7 +80,7 @@ export const Navbar = () => {
       <div className="navbar  max-w-[1100px] mx-auto">
         <div className="navbar-start ">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className=" cursor-pointer p-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -103,7 +103,7 @@ export const Navbar = () => {
               {menu}
             </ul>
           </div>
-          <Link to="/" className=" text-xl font-bold">
+          <Link to="/" className=" md:text-xl text-lg font-bold">
             <span className="text-green-500">E</span>leganceArtistry
           </Link>
         </div>
