@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import "./style.css";
 import slider from "../assets/images/slider/slider.jpg";
 import slider1 from "../assets/images/slider/slider1.jpg";
 import slider2 from "../assets/images/slider/slider2.jpg";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const Carasoul = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const { user } = useContext(AuthContext);
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       loop: true,
@@ -67,13 +70,19 @@ export const Carasoul = () => {
             <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
+                <h1 className="mb-5 text-3xl font-bold">
+                  Expore our Art World
+                </h1>
+                <p className="mb-5">Immerse yourself in creativity</p>
+                {!user ? (
+                  <Link className="btn bg-lime-500 text-white" to="/login">
+                    Join Now
+                  </Link>
+                ) : (
+                  <Link className="btn bg-lime-500 text-white" to="/arts">
+                    View Our all arts
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -88,13 +97,19 @@ export const Carasoul = () => {
             <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
+                <h1 className="mb-5 text-3xl font-bold">
+                  Expore our Art World
+                </h1>
+                <p className="mb-5">Immerse yourself in creativity</p>
+                {!user ? (
+                  <Link className="btn bg-lime-500 text-white" to="/login">
+                    Join Now
+                  </Link>
+                ) : (
+                  <Link className="btn bg-lime-500 text-white" to="/arts">
+                    View Our all arts
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -109,13 +124,19 @@ export const Carasoul = () => {
             <div className="hero-overlay rounded-xl bg-opacity-60 mz"></div>
             <div className="hero-content text-center text-neutral-content mz">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
+                <h1 className="mb-5 text-3xl font-bold">
+                  Expore our Art World
+                </h1>
+                <p className="mb-5">Immerse yourself in creativity</p>
+                {!user ? (
+                  <Link className="btn bg-lime-500 text-white" to="/login">
+                    Join Now
+                  </Link>
+                ) : (
+                  <Link className="btn bg-lime-500 text-white" to="/arts">
+                    View Our all arts
+                  </Link>
+                )}
               </div>
             </div>
           </div>

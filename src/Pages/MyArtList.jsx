@@ -94,7 +94,7 @@ export const MyArtList = () => {
           onChange={(e) => setfilter(e.target.value)}
           name="rating"
           defaultValue={"all"}
-          className="p-2 select select-bordered"
+          className="p-2 w-40 select select-bordered"
         >
           <option value="all">All data</option>
           <option value="c">Customizable</option>
