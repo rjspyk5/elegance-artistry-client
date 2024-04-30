@@ -60,7 +60,7 @@ export const Register = () => {
       >
         <div className="flex-col w-full">
           <div className="text-center lg:text-left"></div>
-          <div className="card my-10 shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-md">
+          <div className="card my-10 shrink-0 p-6 w-full md:w-3/6 mx-auto shadow-2xl bg-[#3f3e3e34] backdrop-blur-xl">
             <h1 className="text-5xl font-bold text-center  text-[white]">
               Register now!
             </h1>
