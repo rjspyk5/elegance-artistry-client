@@ -76,12 +76,12 @@ export const Carasoul = () => {
                   <span style={{ color: "red", fontWeight: "bold" }}>
                     <Typewriter
                       words={["World", "Universe", "Gallery"]}
-                      loop={5}
+                      loop={false}
                       cursor
                       cursorStyle="_"
                       typeSpeed={70}
                       deleteSpeed={50}
-                      delaySpeed={500}
+                      delaySpeed={1500}
                     />
                   </span>
                 </h1>

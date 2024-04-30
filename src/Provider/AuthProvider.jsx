@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       setloading(false);
     });
     return () => {
-      unsubscribe();
+      return unsubscribe();
     };
   }, []);
 
