@@ -13,7 +13,7 @@ export const ReviewCard = ({ review }) => {
           </div>
           <p className="text-center text-sm opacity-80">
             {" "}
-            Author:{review.author}
+            Author: <br /> {review.author}
           </p>
         </div>
       </div>

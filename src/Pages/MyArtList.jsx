@@ -89,7 +89,7 @@ export const MyArtList = () => {
 
   return (
     <>
-      <div className="my-10">
+      <div className="my-8">
         <select
           onChange={(e) => setfilter(e.target.value)}
           name="rating"
@@ -107,7 +107,7 @@ export const MyArtList = () => {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       )}
-      <div className="min-h-[500px]">
+      <div className="min-h-[500px] mb-10">
         {!loading && userArts.length < 1 ? (
           <div className="flex justify-center min-h-[500px] items-center">
             <h1 className="text-2xl font-bold">No record Found</h1>
