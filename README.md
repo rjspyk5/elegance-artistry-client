@@ -1,7 +1,6 @@
 # Elegance Artistary
 
-[Elegance Artistary](https://elegance-artistry.web.app/)
-
+Live Link : https://elegance-artistry.web.app/
 Catagory : Painting and Drawing
 
 ## Features
